@@ -1,0 +1,33 @@
+.marqueeContainer {
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--surface);
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(191, 95, 224, 0.1);
+  border-bottom: 1px solid rgba(191, 95, 224, 0.1);
+  display: flex;
+  white-space: nowrap;
+}
+
+.marqueeContent {
+  display: flex;
+  animation: scrollMarquee 20s linear infinite;
+}
+
+.marqueeContent span {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  padding: 0 1rem;
+  font-weight: 400;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

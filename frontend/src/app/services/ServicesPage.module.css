@@ -1,0 +1,391 @@
+/* ══════════════════════════════════════════
+   Services Page
+══════════════════════════════════════════ */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  padding-bottom: 8rem;
+}
+
+.bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* ── Filter Bar ── */
+.filterWrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 5rem;
+  border-bottom: 1px solid rgba(201,169,110,0.1);
+  background: rgba(13,10,18,0.7);
+  backdrop-filter: blur(14px);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 0.3rem;
+  background: rgba(26,18,40,0.5);
+  border: 1px solid rgba(201,169,110,0.12);
+  border-radius: 50px;
+  padding: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  position: relative;
+  padding: 0.55rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: color 0.3s;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.tab:hover { color: var(--cream); }
+
+.tabActive {
+  color: var(--black);
+  font-weight: 500;
+}
+
+.tabPill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 50px;
+  z-index: -1;
+  animation: pillIn 0.3s ease;
+}
+
+@keyframes pillIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.filterCount {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Grid ── */
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 4rem 5rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* ── Service Card ── */
+.card {
+  position: relative;
+  padding: 2.6rem 2.2rem 2rem;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(201,169,110,0.25),
+    0 0 30px rgba(201,169,110,0.08);
+}
+
+/* Featured variant */
+.featured {
+  border: 1px solid rgba(201,169,110,0.22) !important;
+  background: linear-gradient(
+    160deg,
+    rgba(40,28,10,0.65) 0%,
+    rgba(20,14,5,0.5) 100%
+  ) !important;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(201,169,110,0.1);
+  border: 1px solid rgba(201,169,110,0.25);
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+}
+
+/* Icon */
+.iconWrap {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 2rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(201,169,110,0.4));
+  transition: transform 0.4s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.iconRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.2);
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.card:hover .iconRing {
+  border-color: rgba(201,169,110,0.5);
+  box-shadow: 0 0 16px rgba(201,169,110,0.15);
+}
+
+/* Category chip */
+.categoryChip {
+  display: inline-block;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.75;
+}
+
+/* Title */
+.cardTitle {
+  font-size: 1.55rem;
+  color: var(--cream);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Tagline */
+.cardTagline {
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--purple-dim);
+  margin: 0;
+}
+
+/* Description */
+.cardDesc {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+/* Tags */
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.tag {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.15);
+  padding: 0.22rem 0.75rem;
+  border-radius: 50px;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.tag:hover {
+  background: rgba(201,169,110,0.18);
+  border-color: rgba(201,169,110,0.4);
+  color: var(--accent);
+}
+
+/* Book button */
+.bookBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  padding: 0.85rem 1.4rem;
+  background: transparent;
+  border: 1px solid rgba(201,169,110,0.25);
+  border-radius: 8px;
+  color: var(--cream);
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.35s, border-color 0.35s, color 0.35s;
+  width: 100%;
+}
+
+.bookBtn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--black);
+}
+
+.btnArrow {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.bookBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+/* Decorative corner accents */
+.cardCornerTL,
+.cardCornerBR {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+}
+
+.cardCornerTL {
+  top: 1rem; left: 1rem;
+  border-top: 1px solid rgba(201,169,110,0.3);
+  border-left: 1px solid rgba(201,169,110,0.3);
+  border-radius: 3px 0 0 0;
+  transition: width 0.4s, height 0.4s, border-color 0.4s;
+}
+
+.cardCornerBR {
+  bottom: 1rem; right: 1rem;
+  border-bottom: 1px solid rgba(201,169,110,0.3);
+  border-right: 1px solid rgba(201,169,110,0.3);
+  border-radius: 0 0 3px 0;
+  transition: width 0.4s, height 0.4s, border-color 0.4s;
+}
+
+.card:hover .cardCornerTL,
+.card:hover .cardCornerBR {
+  width: 28px;
+  height: 28px;
+  border-color: rgba(201,169,110,0.7);
+}
+
+/* Bottom gold slide-in line */
+.cardLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--purple-dim), var(--accent));
+  transition: width 0.5s ease;
+}
+
+.card:hover .cardLine { width: 100%; }
+
+/* Glow on hover */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  opacity: 0;
+  background: radial-gradient(ellipse at top left, rgba(201,169,110,0.08) 0%, transparent 60%);
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.card:hover .cardGlow { opacity: 1; }
+
+/* ── Bottom CTA ── */
+.bottomCta {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.bottomText {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.bottomBtn {
+  padding: 1rem 3rem;
+  background: transparent;
+  border: 1px solid rgba(201,169,110,0.5);
+  border-radius: 4px;
+  color: var(--accent);
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 0.35s, color 0.35s;
+}
+
+.bottomBtn:hover {
+  background: var(--accent);
+  color: var(--black);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .filterWrap { padding: 2rem 3rem; }
+  .grid       { padding: 3rem; }
+}
+
+@media (max-width: 768px) {
+  .filterWrap { padding: 1.5rem; }
+  .filterTabs { gap: 0.2rem; }
+  .tab        { padding: 0.5rem 1rem; font-size: 0.75rem; }
+  .grid       { padding: 2rem 1.5rem; grid-template-columns: 1fr; }
+}

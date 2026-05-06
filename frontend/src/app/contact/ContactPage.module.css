@@ -1,0 +1,242 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  padding-bottom: 6rem;
+}
+
+.bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.contactGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 3rem;
+}
+
+/* ── Form ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.formTitle {
+  font-size: 2rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+  color: var(--cream);
+  font-family: var(--font-jost), sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 0;
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none;
+}
+
+.input:focus {
+  border-bottom-color: var(--accent);
+}
+
+/* Animated underline */
+.inputLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.field:focus-within .inputLine {
+  width: 100%;
+}
+
+.textarea {
+  min-height: 120px;
+  padding-top: 0.4rem;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--black);
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(13,10,18,0.3);
+  border-top-color: var(--black);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Info Panel ── */
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(26,18,40, 0.5);
+  border: 1px solid rgba(201,169,110,0.12);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.infoItem:hover {
+  border-color: rgba(201,169,110,0.3);
+  box-shadow: 0 0 15px rgba(201,169,110,0.08);
+}
+
+.infoIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201,169,110,0.1);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.infoValue {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--cream);
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* Map placeholder */
+.mapBox {
+  flex: 1;
+  min-height: 200px;
+  border-radius: 14px;
+  background: radial-gradient(ellipse at center, rgba(26,18,40,0.8) 0%, rgba(13,10,18,0.95) 100%);
+  border: 1px solid rgba(201,169,110,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mapBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,169,110,0.05) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,169,110,0.05) 40px);
+}
+
+.mapOverlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mapOverlay p {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+}

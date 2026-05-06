@@ -1,0 +1,130 @@
+.ctaSection {
+  position: relative;
+  padding: 10rem 2rem;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.glowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(191, 95, 224, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ring {
+  position: absolute;
+  border: 1px solid rgba(191, 95, 224, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ring1 {
+  width: 400px;
+  height: 400px;
+  animation: pulseRing 8s infinite alternate ease-in-out;
+}
+
+.ring2 {
+  width: 600px;
+  height: 600px;
+  animation: pulseRing 12s infinite alternate-reverse ease-in-out;
+}
+
+.ring3 {
+  width: 800px;
+  height: 800px;
+  animation: pulseRing 16s infinite alternate ease-in-out;
+}
+
+@keyframes pulseRing {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.subtext {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 3.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaBtn {
+  display: inline-block;
+  padding: 1.25rem 3.5rem;
+  background: var(--accent);
+  color: var(--black);
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-jost), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(191, 95, 224, 0.2);
+}
+
+.ctaBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transition: left 0.6s ease;
+}
+
+.ctaBtn:hover::before {
+  left: 100%;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(191, 95, 224, 0.4);
+}
+
+.btnText {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .ctaSection {
+    padding: 8rem 2rem;
+  }
+}

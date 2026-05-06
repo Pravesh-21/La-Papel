@@ -1,0 +1,172 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  padding-bottom: 0;
+}
+
+.bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* ── Countdown Banner ── */
+.countSection {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.countBanner {
+  text-align: center;
+  padding: 2.5rem 4rem;
+  background: rgba(26,18,40,0.65);
+  border: 1px solid rgba(201,169,110,0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  max-width: 600px;
+  width: 100%;
+}
+
+.countLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.countTimers {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.countUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.countNum {
+  font-family: var(--font-cormorant), serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.countUnitLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.countOffer {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--cream);
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin: 0;
+}
+
+/* ── Open Modal Card ── */
+.openModalSection {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 2rem 4rem;
+}
+
+.openModalCard {
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.openModalCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,169,110,0.12);
+}
+
+.openModalIcon {
+  color: var(--accent);
+  font-size: 1.8rem;
+  animation: spinSlow 8s linear infinite;
+}
+
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+.openModalTitle {
+  font-size: 2rem;
+  color: var(--cream);
+  margin: 0;
+}
+
+.openModalText {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0;
+}
+
+.openModalBtn {
+  margin-top: 0.5rem;
+  padding: 1rem 2.8rem;
+  background: var(--accent);
+  color: var(--black);
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.openModalBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.openModalBtn:hover::before {
+  transform: translateX(100%);
+}
+
+.openModalBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .countBanner { padding: 2rem 1.5rem; }
+  .countNum { font-size: 2.5rem; }
+}

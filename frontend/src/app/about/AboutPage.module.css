@@ -1,0 +1,255 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  padding-bottom: 6rem;
+}
+
+.bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* ── Quote Section ── */
+.quoteSection {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 6rem 4rem;
+  border-top: 1px solid rgba(201,169,110,0.1);
+  border-bottom: 1px solid rgba(201,169,110,0.1);
+}
+
+.bigQuote {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--cream);
+  max-width: 860px;
+  margin: 0 auto;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.quoteAuthor {
+  display: block;
+  margin-top: 1.5rem;
+  font-family: var(--font-jost), sans-serif;
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ── Shared Section Header ── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--accent);
+  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  margin: 0;
+}
+
+/* ── Timeline ── */
+.timelineSection {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--purple-dim), transparent);
+  transform: translateX(-50%);
+}
+
+.milestone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  width: 50%;
+}
+
+.left {
+  left: 0;
+  padding-right: 3rem;
+  justify-content: flex-end;
+}
+
+.right {
+  left: 50%;
+  padding-left: 3rem;
+  justify-content: flex-start;
+}
+
+.milestoneCard {
+  background: rgba(26,18,40, 0.6);
+  border: 1px solid rgba(201,169,110,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1.2rem 1.6rem;
+  max-width: 320px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.milestoneCard:hover {
+  border-color: rgba(201,169,110,0.4);
+  box-shadow: 0 0 20px rgba(201,169,110,0.1);
+}
+
+.milestoneYear {
+  font-family: var(--font-cormorant), serif;
+  font-size: 2rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.milestoneEvent {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--cream);
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.milestoneDot {
+  position: absolute;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(201,169,110,0.6);
+}
+
+/* ── Team Grid ── */
+.teamSection {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 4rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.teamCard {
+  position: relative;
+  padding: 2.5rem 1.8rem;
+  border-radius: 16px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.teamCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 25px rgba(201,169,110,0.12);
+}
+
+.avatarRing {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,169,110,0); }
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-dim), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.memberName {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  color: var(--cream);
+}
+
+.memberRole {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.memberExp {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Hover shine */
+.cardShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 30%, rgba(201,169,110,0.06) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.teamCard:hover .cardShine {
+  transform: translateX(100%);
+}
+
+@media (max-width: 768px) {
+  .timelineLine { display: none; }
+  .milestone { width: 100%; left: 0; padding: 0; margin-bottom: 1.5rem; }
+  .left, .right { justify-content: center; padding: 0; }
+  .milestoneCard { max-width: 100%; }
+  .timelineSection, .teamSection { padding: 4rem 1.5rem; }
+  .quoteSection { padding: 4rem 2rem; }
+}

@@ -1,0 +1,7 @@
+# Prevent agent from seeing secrets
+.env
+.env.local
+*.pem
+# Optional: ignore heavy folders to save tokens
+node_modules/
+.next/

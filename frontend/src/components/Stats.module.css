@@ -1,0 +1,79 @@
+.statsBanner {
+  width: 100%;
+  background: linear-gradient(135deg, var(--card) 0%, #16120c 100%);
+  border-top: 1px solid rgba(191, 95, 224, 0.15);
+  border-bottom: 1px solid rgba(191, 95, 224, 0.15);
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(191, 95, 224, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.statNumber {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--purple-light);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(191, 95, 224, 0.2);
+}
+
+.statLabel {
+  font-family: var(--font-jost), sans-serif;
+  color: var(--purple-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.9rem;
+}
+
+.separator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(191, 95, 224, 0.3), transparent);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  .statBlock {
+    flex: 1 1 40%;
+  }
+  .separator {
+    display: none;
+  }
+}
