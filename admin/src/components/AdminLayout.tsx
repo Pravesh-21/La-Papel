@@ -14,8 +14,8 @@ export default async function AdminLayout({
   if (!user) {
     redirect("/sign-in");
   }
-
-  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+  // This ignores the environment variable entirely for the pitch
+  const adminEmail = "praveshpshrivastava@gmail.com";
   const userEmail = user.emailAddresses[0]?.emailAddress;
 
   if (userEmail !== adminEmail) {
