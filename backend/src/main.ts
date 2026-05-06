@@ -9,7 +9,8 @@ async function bootstrap() {
   // Enable CORS
   app.enableCors({
     origin:[
-      'https://la-papel-admin.vercel.app', 
+      'https://la-papel-admin.vercel.app',
+      'https://la-papel-frontend.vercel.app', 
       'http://localhost:3000', 
       'http://localhost:3001'
     ]
