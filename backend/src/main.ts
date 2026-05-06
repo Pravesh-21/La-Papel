@@ -7,7 +7,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Enable CORS
-  app.enableCors();
+  app.enableCors({
+    origin:[
+      'https://la-papel-admin.vercel.app', 
+      'http://localhost:3000', 
+      'http://localhost:3001'
+    ]
+  });
 
   // Enable Validation
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
