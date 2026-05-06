@@ -15,7 +15,7 @@ export default async function AdminLayout({
     redirect("/sign-in");
   }
 
-  const adminEmail = process.env.ADMIN_EMAIL;
+  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
   const userEmail = user.emailAddresses[0]?.emailAddress;
 
   if (userEmail !== adminEmail) {
